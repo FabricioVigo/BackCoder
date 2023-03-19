@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { __dirname } from "../helpers/utils.js";
+import { __dirname } from "../utils/utils.js";
 import CartManagerDB from "../dao/cartManagerDB.js";
 
 const router = Router();

@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { __dirname } from "../helpers/utils.js";
+import { __dirname } from "../utils/utils.js";
 import productManagerDB from "../dao/productManagerDB.js";
-import { addProductMid, updateProductMid } from "../middlewares/products.middlewares.js";
+import { addProductMid, updateProductMid } from "../middlewares/middlewares.js";
 
 const router = Router();
 const pm = new productManagerDB;

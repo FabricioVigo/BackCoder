@@ -4,13 +4,13 @@ import { Server } from "socket.io";
 import mongoose from "mongoose";
 import path from "path";
 
-import productsFSRouter from "./routes/products.router.js";
-import cartsFSRouter from "./routes/carts.router.js";
+import productsFSRouter from "./routes/product.js";
+import cartsFSRouter from "./routes/cart.js";
 import cartsDBRouter from "./routes/cartsDB.router.js";
 import productsDBRouter from "./routes/productsDB.router.js";
-import viewsRouter from "./routes/views.router.js";
-import ProductManagerFS from "./dao/productManagerFS.js";
-import { __dirname } from "./helpers/utils.js";
+import viewsRouter from "./routes/viewsRouter.js";
+import ProductManagerFS from "./dao/productManager.js";
+import { __dirname } from "./utils/utils.js";
 import { messagesModel } from "./dao/models/messages.model.js";
 
 const app = express();
