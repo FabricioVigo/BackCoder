@@ -1,15 +1,19 @@
 import { Router } from "express";
 import { __dirname } from "../utils/utils.js";
 import productManagerDB from "../dao/productManagerDB.js";
-import { addProductMid, updateProductMid } from "../middlewares/middlewares.js";
+import { addProductMid, updateProductMid } from "../middlewares/products.middlewares.js";
 
 const router = Router();
-const pm = new productManagerDB;
+const pm = new productManagerDB();
 
 router.get("/", async (req, res) => {
-  let products = await pm.getProducts(req.query.limit);
   res.setHeader("Content-Type", "application/json");
-  res.status(200).json({ products });
+  let response = await pm.getProducts(req);
+  if (response.status === "success") {
+    res.status(200).json(response);
+  } else {
+    res.status(500).json(response);
+  }
 });
 
 router.get("/:pid", (req, res) => pm.getProductById(req, res));

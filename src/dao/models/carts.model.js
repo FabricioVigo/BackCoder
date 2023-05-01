@@ -1,12 +1,12 @@
-import { Schema, model } from "mongoose";
+import mongoose, { Schema, model } from "mongoose";
 
 const cartsCollection = "carts";
 
 const cartItemSchema = new Schema({
   productId: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "products",
     required: true,
-    unique: true,
   },
   quantity: {
     type: Number,
@@ -18,5 +18,7 @@ const cartsSchema = new Schema({
   alias: String,
   products: [cartItemSchema],
 });
+
+//AGREGAR PRE PARA POPULATION (SLIDE 9 46)
 
 export const cartsModel = model(cartsCollection, cartsSchema);
